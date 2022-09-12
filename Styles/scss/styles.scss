@@ -1,0 +1,87 @@
+@use "_variables.scss";
+body{
+    margin: 0px;
+    background-color: variables.$main-background-color;
+}
+
+.Title{
+    color: variables.$title-color;
+    text-align: center;
+}
+.contact{
+    text-align: center;
+    color: variables.$main-text-color;
+}
+.summary{
+    margin-left: 2.5%;
+}
+
+main{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+}
+.column{
+    width: 45%;
+}
+.columnSeparator{
+    width: 5%;
+}
+
+.sectionTitle{
+    color: variables.$section-title-color;
+    border-bottom: 5px solid variables.$bar-color;
+    width: fit-content;
+}
+.info, li{
+    color: variables.$main-text-color;
+}
+
+
+
+@mixin disclaimer() {
+    background-color: variables.$bar-color;
+    color: variables.$main-background-color;
+}
+
+%footerheight{
+    height: 20px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+}
+.disclaimer{
+    width: 10%;
+    @extend body;
+    @include disclaimer();
+    @extend %footerheight
+}
+marquee{
+    width: 40%;
+    @extend %footerheight;
+    @include disclaimer();
+}
+
+@media (max-width: 750px){
+    main{
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .column{
+        width: 100%;
+    }
+    .columnSeparator{
+        width: 0px;
+    }
+    .footer{
+        width: 100%;
+    }
+    .disclaimer{
+        width:20%;
+    }
+    marquee{
+        width: 80%
+    }
+}
